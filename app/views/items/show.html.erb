@@ -1,0 +1,17 @@
+<p>
+  <strong>Description:</strong>
+  <%= @item.description %>
+</p>
+ 
+<p>
+  <strong>Timestamp:</strong>
+  <%= @item.created_at %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <%= @item.categories.to_sentence %>
+</p>
+
+<%= link_to 'Back', items_path %>
+| <%= link_to 'Edit', edit_item_path(@item) %>

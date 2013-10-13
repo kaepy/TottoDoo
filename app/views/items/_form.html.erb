@@ -1,0 +1,27 @@
+<%= simple_form_for @item do |f| %>
+
+  <% if @item.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@item.errors.count, "error") %> prohibited
+      this item from being saved:</h2>
+    <ul>
+    <% @item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+  <%= f.association :categories, as: :check_boxes, wrapper_html: {class: 'kikkeli'} %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
